@@ -4,6 +4,7 @@ import MainLayout from "../components/layout/MainLayout";
 import Home from "../pages/Home";
 import Donation from "../pages/Donation";
 import Statistics from "../pages/Statistics";
+import Donation_details from "../pages/Donation_details";
 
  
  export  const router = createBrowserRouter([
@@ -22,7 +23,11 @@ import Statistics from "../pages/Statistics";
         {
           path:"/statistics",
           element:<Statistics />
-        }
+        },
+        {
+          path:"/donation-details/:id",
+          element:<Donation_details />
+        },
       ]
     },
 
