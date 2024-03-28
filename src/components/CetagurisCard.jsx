@@ -5,11 +5,11 @@ const CetagurisCard=({data})=>{
   const {id,categoryBg,title,cardBg,image,textColortitle,category} = data;
   return (
     <Link to={`/donation-details/${id}`}>
-      <div style={{background:cardBg}} className={`card shadow-xl`}>
+      <div style={{background:cardBg}}  className={`card shadow-xl`}>
       <figure>
         <img
           src={image}
-          alt="Shoes"
+          alt={category}
         />
       </figure>
       <div className="card-body">
@@ -20,5 +20,6 @@ const CetagurisCard=({data})=>{
     </Link>
   );
 };
+
 
 export default CetagurisCard;

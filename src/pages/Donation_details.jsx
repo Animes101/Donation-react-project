@@ -9,36 +9,37 @@ import {
   Typography,
   Button
 } from "@material-tailwind/react";
+import { saveData } from "../utils/localStorage";
+
 
 const Donation_details = () => {
   const [details, setDetails] = useState({});
   const { id } = useParams();
   const { datas, isloading } = useFetchData();
 
+  const handleDonation = () => {
+    // saveData(details);
+    saveData(details)
+
+    console.log(details);
+  };
+
   useEffect(() => {
-    const singleData = datas.find((item) => item.id == id);
-    setDetails(singleData);
+    if (datas) {
+      const singleData = datas.find((item) => item.id === +id);
+      setDetails(singleData);
+    }
   }, [id, datas]);
 
-  const {
-    categoryBg,
-    title,
-    description,
-    cardBg,
-    image,
-    category,
-    price
-  } = details || {};
+  const { categoryBg, title, description, cardBg, image, category, price } =
+    details || {};
 
-  console.log(details);
-
-  const handleDonation=(id)=>{
-    alert(id);
-
-  }
   return (
     <div className="w-4/5 mx-auto h-screen flex justify-center items-center">
-      <Card style={{background:cardBg}} className="w-full flex-row border border-black">
+      <Card
+        style={{ background: cardBg }}
+        className="w-full flex-row border border-black"
+      >
         <CardHeader
           shadow={false}
           floated={false}
@@ -61,8 +62,13 @@ const Donation_details = () => {
             {description}
           </Typography>
           <p className="inline-block">
-            <Button  style={{background:categoryBg}} onClick={()=>handleDonation(id)} variant="text" className="flex items-center gap-2">
-              {price}
+            <Button
+              style={{ background: categoryBg , }}
+              onClick={handleDonation}
+              variant="text"
+              className="flex items-center gap-2 text-black font-bold" 
+            >
+             Donation {price}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

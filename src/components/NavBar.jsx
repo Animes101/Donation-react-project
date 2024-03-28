@@ -21,9 +21,6 @@ const NavBar = () => {
     const getThims=localStorage.getItem('thems');
     document.querySelector('html').setAttribute('data-theme',getThims);
 
-
-    console.log(getThims);
-
   },[thims])
   return (
     <nav className="">
