@@ -1,5 +1,5 @@
 export const saveData=(data)=>{
-    let saveLocalstorageData=JSON.parse(localStorage.getItem('donation') || []);
+    let saveLocalstorageData=JSON.parse(localStorage.getItem('donation')) || [];
 
     const isExistData=saveLocalstorageData.find(item=>item.id === data.id);
 
@@ -17,6 +17,9 @@ export const saveData=(data)=>{
 }
 
 export const getDAta=()=>{
-    const getDatas=JSON.parse(localStorage.getItem('donation') || []);
-    return getDatas;
-}
+    const readData = localStorage.getItem('donation')
+    let getDatas = [];
+    if(readData )
+        getDatas=JSON.parse(readData);
+        return getDatas;
+    }

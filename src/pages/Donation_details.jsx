@@ -19,9 +19,10 @@ const Donation_details = () => {
 
   const handleDonation = () => {
     // saveData(details);
-    saveData(details)
 
-    console.log(details);
+    saveData(details);
+    
+
   };
 
   useEffect(() => {

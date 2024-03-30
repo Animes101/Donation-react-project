@@ -9,9 +9,8 @@ import {
   } from "@material-tailwind/react";
 
 const DonationCard = ({data}) => {
-    const {description,image,title,cardBg,category,categoryBg}=data
+    const {description,image,title,cardBg,category}=data || {};
 
-    console.log(data);
   return (
     <div>
       <Card style={{background:cardBg}} className="w-full  flex-row">
@@ -30,7 +29,7 @@ const DonationCard = ({data}) => {
             {category}
           </Typography>
           <Typography variant="h4" color="blue-gray" className="mb-2">
-            Lyft launching cross-platform service this week
+            {title}
           </Typography>
           <Typography color="gray" className="mb-8 font-normal">
             {description}
