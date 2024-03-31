@@ -9,7 +9,9 @@ const useLocalStrorage = () => {
 
     useEffect(()=>{
         setLocalData(getDAta());
-        setIsLoading(false);
+        setIsLoading(false)
+
+
     },[])
   return {localData ,isLoading}
 }

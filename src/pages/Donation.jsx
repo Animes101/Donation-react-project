@@ -1,4 +1,6 @@
 import DonationCard from "../components/DonationCard";
+import LoadDataSpiner from "../components/LoadDataSpiner";
+import NofoundData from "../components/NofoundData";
 import useLocalStrorage from "../hooks/useLocalStrorage";
 import React, { useState } from "react";
 
@@ -7,7 +9,12 @@ const Donation = () => {
 
   const { localData, isLoading } = useLocalStrorage();
 
-  console.log(localData);
+  if(localData.length <1){
+    return <NofoundData />
+  }
+if(isLoading){
+  return <LoadDataSpiner />
+}
 
   return (
     <div className="w-3/4 mx-auto grid grid-cols-1 gap-y-8 space-y-4 mt-6">
@@ -16,7 +23,6 @@ const Donation = () => {
         .map((data, index) => (
           <DonationCard data={data} key={index} />
         ))}
-
       {localData.length > 2 ? (
         <div className="flex justify-center items-center ">
           <button

@@ -10,6 +10,7 @@ const useFetchData = () => {
             const res = await fetch('/db.json');
             const data =await res.json();
             setDAtas(data);
+            seIsloading(false);
 
         })();
 

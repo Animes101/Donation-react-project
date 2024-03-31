@@ -10,6 +10,7 @@ import {
   Button
 } from "@material-tailwind/react";
 import { saveData } from "../utils/localStorage";
+import LoadDataSpiner from "../components/LoadDataSpiner";
 
 
 const Donation_details = () => {
@@ -34,6 +35,11 @@ const Donation_details = () => {
 
   const { categoryBg, title, description, cardBg, image, category, price } =
     details || {};
+
+
+    if(isloading){
+      return <LoadDataSpiner />
+    }
 
   return (
     <div className="w-4/5 mx-auto h-screen flex justify-center items-center">

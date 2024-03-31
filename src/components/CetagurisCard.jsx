@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CetagurisCard=({data})=>{
+const CetagurisCard=({data,})=>{
   const {id,categoryBg,title,cardBg,image,textColortitle,category} = data;
   return (
     <Link to={`/donation-details/${id}`}>

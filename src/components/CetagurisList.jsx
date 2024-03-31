@@ -1,13 +1,21 @@
 import React from 'react'
 import useFetchData from '../hooks/useFetchData';
 import CetagurisCard from './CetagurisCard';
+import LoadDataSpiner from './LoadDataSpiner';
 
 
-const CetagurisList = () => {
+const CetagurisList = ({totalData}) => {
+
     const {datas,isLoading}=useFetchData();
+
+
+    if(isLoading){
+      return <LoadDataSpiner />
+    }
+   
   return (
     <div className='grid grid-cols-4 gap-10 py-10'>
-      {datas.map((data)=><CetagurisCard key={data.id} data={data} />)}
+      {totalData.map((data)=><CetagurisCard key={data.id} data={data}  />)}
     </div>
   )
 }
