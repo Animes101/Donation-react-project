@@ -1,5 +1,5 @@
 import React from 'react'
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector,Tooltip,Legend, Cell, ResponsiveContainer } from 'recharts';
 import useFetchData from '../hooks/useFetchData';
 import useLocalStrorage from '../hooks/useLocalStrorage';
 
@@ -31,6 +31,18 @@ const Statistics = () => {
     );
   };
 
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
+
   return (
     <div style={{width:'100%' ,height:'100vh'}}>
        <ResponsiveContainer >
@@ -41,7 +53,7 @@ const Statistics = () => {
             cy="50%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={80}
+            outerRadius={180}
             fill="#8884d8"
             dataKey="value"
           >
@@ -49,6 +61,8 @@ const Statistics = () => {
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
+          <Tooltip content={<CustomTooltip />} />
+          <Legend />
         </PieChart>
       </ResponsiveContainer>
     </div>

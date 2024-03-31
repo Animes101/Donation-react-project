@@ -1,3 +1,7 @@
+import { toast } from "react-toastify";
+
+
+
 export const saveData=(data)=>{
     let saveLocalstorageData=JSON.parse(localStorage.getItem('donation')) || [];
 
@@ -8,10 +12,11 @@ export const saveData=(data)=>{
 
         localStorage.setItem('donation',JSON.stringify(saveLocalstorageData));
 
-        alert('okk add');
+        toast.success('donation added')
+
         
     }else{
-        alert('alredy save');
+        toast.warning('donation allredy doned')
 
     }
 }
